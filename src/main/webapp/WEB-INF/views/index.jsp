@@ -26,6 +26,9 @@
     <div class="row">
         <h4>Форум job4j - список тем.</h4>
     </div>
+    <div>
+        Login as : ${user.username}
+    </div>
     <div class="row">
         <table class="table">
             <thead>
