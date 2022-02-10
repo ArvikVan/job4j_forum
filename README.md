@@ -1,4 +1,4 @@
-[![CI](https://github.com/ArvikVan/job4j_forum/actions/workflows/main.yml/badge.svg)](https://github.com/ArvikVan/job4j_forum/actions/workflows/main.yml)
+[![CI](https://github.com/ArvikVan/job4j_forum/actions/workflows/Createmain.yml/badge.svg?branch=master&event=push)](https://github.com/ArvikVan/job4j_forum/actions/workflows/Createmain.yml)
 # job4j_forum
 
 ### Контакты для связи<br>
