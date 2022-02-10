@@ -1,5 +1,8 @@
 package forum.model;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -8,7 +11,11 @@ import java.util.Objects;
  * @version 1.0
  * @since 10.02.2022
  */
+@Entity
+@Table(name = "posts")
 public class Post {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;

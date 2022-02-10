@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,13 +30,17 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">Тема</th>
+                <th scope="col">PostName</th>
+                <th scope="col">Description</th>
+                <th scope="col">Created</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${posts}" var="post">
                 <tr>
                     <td><c:out value="${post.name}"/></td>
+                    <td><c:out value="${post.description}"/></td>
+                    <td><fmt:formatDate value="${post.created.time}" type="date" dateStyle="short" /></td>
                 </tr>
             </c:forEach>
             </tbody>
