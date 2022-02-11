@@ -32,7 +32,9 @@
     <div class="row">
         <table class="table">
             <thead>
+            <tr> <a href="<c:url value='/post-create'/>">Add another post</a></tr>
             <tr>
+                <th scope="col">#</th>
                 <th scope="col">PostName</th>
                 <th scope="col">Description</th>
                 <th scope="col">Created</th>
@@ -41,9 +43,12 @@
             <tbody>
             <c:forEach items="${posts}" var="post">
                 <tr>
+                    <td><c:out value="${post.id}"/></td>
                     <td><c:out value="${post.name}"/></td>
                     <td><c:out value="${post.description}"/></td>
                     <td><fmt:formatDate value="${post.created.time}" type="date" dateStyle="short" /></td>
+                    <td><a href="<c:out value='/post-update?id=${post.id}'/>">Edit post</a></td>
+                    <td><a href="<c:out value='/post-delete/?id=${post.id}'/>">Delete post</a></td>
                 </tr>
             </c:forEach>
             </tbody>
