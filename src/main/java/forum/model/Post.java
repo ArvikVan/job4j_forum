@@ -21,6 +21,15 @@ public class Post {
     private String description;
     private Calendar created;
 
+    public Post() {
+    }
+
+    public Post(Long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
     public static Post of(String name) {
         Post post = new Post();
         post.name = name;
