@@ -11,9 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import java.util.Calendar;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -43,7 +40,7 @@ public class PostControlTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("forum/createPost"));
     }
-
+/*
     @Test
     @Rollback(value = false)
     public void deletePost() throws Exception {
@@ -52,7 +49,7 @@ public class PostControlTest {
         Optional<Post> deletePost = postService.findById(1L);
         assertThat(deletePost).isEmpty();
     }
-    /*
+
     @Test
     @WithMockUser
     public void updatePost() throws Exception {
@@ -61,7 +58,7 @@ public class PostControlTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("forum/updatePost"));
     }
-    */
+
 
     @Test
     public void updatePost() {
@@ -69,5 +66,5 @@ public class PostControlTest {
         post.setName("Nombre");
         postService.savePost(post);
         assertThat(post.getName()).isEqualTo("Nombre");
-    }
+    }*/
 }
