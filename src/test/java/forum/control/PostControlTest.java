@@ -3,20 +3,24 @@ package forum.control;
 import forum.Main;
 import forum.model.Post;
 import forum.service.PostService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Optional;
+
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -32,6 +36,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WebAppConfiguration
 public class PostControlTest {
+    private Post post;
     @Autowired
     private MockMvc mockMvc;
     @MockBean
@@ -44,6 +49,15 @@ public class PostControlTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("forum/createPost"));
+    }
+
+    @Test
+    public void givenIdTODeleteThenShouldDeleteThePost() {
+        Post post = new Post(4L,  "postToDelete", "descOfPostToDelete");
+        postService.savePost(post);
+        postService.deleteById(post.getId());
+        Optional<Post> optional = postService.findById(post.getId());
+        Assertions.assertEquals(Optional.empty(), optional);
     }
 
     @Test
