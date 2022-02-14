@@ -1,1 +1,1 @@
-web: java -jar target/forum-1.0-SNAPSHOT.jar --spring.config.location=heroku.properties
+web: java -jar target/forum-1.0-SNAPSHOT.war --spring.config.location=heroku.properties
