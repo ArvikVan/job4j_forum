@@ -24,9 +24,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource ds;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(ds)
