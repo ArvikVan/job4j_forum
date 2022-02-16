@@ -27,8 +27,9 @@
         <h4>Форум job4j - список тем.</h4>
     </div>
     <div>
-        Login as : ${user.username}
+        Login as : ${user.username} | <a href="<c:url value='/logout'/>">Выйти</a>
     </div>
+
     <div class="row">
         <table class="table">
             <thead>
